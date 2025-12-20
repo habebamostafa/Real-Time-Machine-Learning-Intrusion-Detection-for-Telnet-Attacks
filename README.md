@@ -1,43 +1,58 @@
 # 🔐 Telnet Brute Force Attack Detection
 
 ## 📌 Project Overview
-Machine Learning-based Intrusion Detection System (IDS) for detecting Telnet brute-force attacks using network traffic analysis.
+A **Machine Learning–based Intrusion Detection System (IDS)** designed to detect **Telnet brute-force attacks** through network traffic analysis and behavior-based feature extraction.
+
+---
 
 ## 🎯 Objectives
-- Simulate Telnet brute-force attacks
-- Capture and label network traffic
-- Train ML models for attack detection
-- Deploy real-time IDS
+- Simulate Telnet brute-force attacks in a controlled environment  
+- Capture and label network traffic  
+- Train and evaluate multiple machine learning models  
+- Deploy a real-time intrusion detection system  
+
+---
 
 ## 🖥️ Lab Setup
 
 | Machine     | OS              | Role               |
 |------------|-----------------|--------------------|
 | Attacker   | Kali Linux      | Attack simulation  |
-| Victim     | Metasploitable  | Data collection    |
+| Victim     | Metasploitable  | Traffic generation |
 | Deployment | Ubuntu          | Real-time detection|
 
+---
+
 ## 🔧 Tools Used
-- **Packet Capture:** Wireshark, PyShark
-- **ML Libraries:** Scikit-learn, XGBoost
-- **Programming:** Python
-- **Virtualization:** VirtualBox / VMware
+- **Packet Capture:** Wireshark, PyShark  
+- **Machine Learning:** Scikit-learn, XGBoost, CatBoost  
+- **Programming Language:** Python  
+- **Virtualization:** VirtualBox / VMware  
+
+---
 
 ## 📊 Dataset
-- **Total Records:** 5,724 packets
-- **Normal Traffic:** 3,125 records
-- **Attack Traffic:** 2,599 records
-- **Split:** 90% train, 10% test
+- **Total Records:** 5,724 network packets  
+- **Normal Traffic:** 3,125 packets  
+- **Attack Traffic:** 2,599 packets  
+- **Data Split:** 90% Training, 10% Testing (stratified)  
 
-## 🎯 Features Used
-Selected via RFE with Random Forest:
-- `frame.len` – Packet length
-- `tcp.len` – TCP payload length
-- `tcp.stream` – Stream index
-- `tcp.window_size` – Window size
-- `tcp_PSH` – Push flag indicator
+---
 
-## 🤖 ML Models Performance
+## 🎯 Feature Selection
+Features were selected using **Recursive Feature Elimination (RFE)** with a Random Forest estimator to reduce redundancy and prevent overfitting:
+
+- `frame.len` – Packet length  
+- `tcp.len` – TCP payload length  
+- `tcp.stream` – TCP stream index  
+- `tcp.window_size` – TCP window size  
+- `tcp_PSH` – TCP push flag indicator  
+
+Time-based and port-based features were intentionally removed to prevent shortcut learning and improve model generalization.
+
+---
+
+## 🤖 Machine Learning Models Performance
 
 | Model           | Accuracy | Precision | Recall | F1-Score |
 |-----------------|----------|-----------|--------|----------|
@@ -45,27 +60,36 @@ Selected via RFE with Random Forest:
 | Random Forest   | 88%      | 88%       | 91%    | 89%      |
 | XGBoost         | 89%      | 88%       | 93%    | 90%      |
 | SVM (RBF)       | 82%      | 78%       | 93%    | 85%      |
+| **CatBoost**    | **90%**  | **89%**   | **93%**| **91%**  |
+
+---
 
 ## 🚀 Deployment
-- Real-time detection system on Ubuntu
-- Uses PyShark for live packet capture
-- Loads pre-trained Random Forest model
-- Classifies traffic as Normal or Attack instantly
-- Runs locally on victim machine
+- Real-time intrusion detection deployed on **Ubuntu**  
+- Live packet capture using **PyShark**  
+- Pre-trained machine learning model loaded for inference  
+- Traffic classified instantly as **Normal** or **Attack**  
+- Designed for lightweight local execution  
+
+---
 
 ## ✅ Conclusion
-- Decision Tree performed best (90% accuracy)
-- TCP-level features effectively distinguish attacks
-- Real-time detection is feasible with ML
-- Lightweight deployment possible using PyShark
+- Tree-based ensemble models achieved strong performance in detecting Telnet brute-force attacks  
+- **CatBoost provided the best balance between recall and F1-score**, making it suitable for IDS deployment  
+- TCP-level behavioral features effectively distinguish attack traffic from normal traffic  
+- Real-time machine learning–based intrusion detection is feasible and efficient  
+
+---
 
 ## 🔮 Future Work
-- Extend to SSH / FTP protocols
-- Implement deep learning models
-- Add automated alerting system
-- Cloud-based deployment
+- Extend detection to additional protocols (SSH, FTP)  
+- Explore deep learning–based intrusion detection models  
+- Integrate automated alerting and logging mechanisms  
+- Deploy the system in a cloud-based or distributed environment  
+
+---
 
 ## 👥 Team Members
-- Salma Ahmed Eltayb
-- Boles Medhat Arian
-- Habeba Mostafa Desoky
+- Salma Ahmed Eltayb  
+- Boles Medhat Arian  
+- Habeba Mostafa Desoky  
