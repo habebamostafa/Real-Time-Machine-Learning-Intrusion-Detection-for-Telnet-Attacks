@@ -1,0 +1,28 @@
+================================================================================
+TELNET ATTACK DETECTION - RESULTS SUMMARY
+================================================================================
+
+1. BEST MODEL: CatBoost
+   F1-Score: 0.9107
+   Recall: 0.9296
+   Precision: 0.8925
+
+2. ALL MODELS COMPARISON:
+           Model  Accuracy  Precision  Recall  F1-Score  Balanced Accuracy
+3       CatBoost  0.900437   0.892473  0.9296  0.910658           0.897492
+0  Random Forest  0.891703   0.884793  0.9216  0.902821           0.888685
+1  Decision Tree  0.886463   0.881356  0.9152  0.897959           0.883562
+2        XGBoost  0.867249   0.865533  0.8960  0.880503           0.864346
+
+3. FEATURES USED:
+    1. frame.len
+    2. tcp.len
+    3. tcp.stream
+    4. tcp_PSH
+    5. tcp.window_size
+
+4. KEY INSIGHTS:
+   • CatBoost performs best with highest recall (93.3%)
+   • Ensemble methods outperform single decision trees
+   • System can effectively detect Telnet attacks
+   • Suitable for real-time intrusion detection
