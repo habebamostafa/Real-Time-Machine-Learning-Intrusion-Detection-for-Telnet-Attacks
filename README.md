@@ -35,7 +35,6 @@ A **Machine Learning–based Intrusion Detection System (IDS)** designed to dete
 - **Total Records:** 5,724 network packets  
 - **Normal Traffic:** 3,125 packets  
 - **Attack Traffic:** 2,599 packets  
-- **Data Split:** 90% Training, 10% Testing (stratified)  
 
 ---
 
