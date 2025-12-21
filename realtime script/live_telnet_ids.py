@@ -70,7 +70,7 @@ def get_features(packet):
 # CORRECT prediction logic
 # ===============================
 def analyze_window(df, model, scaler, features):
-    """Analyze a window of packets WITHOUT flipping."""
+    """Analyze a window of packets """
     # Ensure correct features
     for feat in features:
         if feat not in df.columns:
